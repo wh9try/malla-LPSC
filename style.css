@@ -1,183 +1,143 @@
-/* Reset y básicos */
-* {
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
 body {
-  background: #f0f4f8;
-  padding: 20px;
-  color: #333;
+  font-family: sans-serif;
+  background-color: #f7f9fc;
+  margin: 20px;
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 30px;
-  color: #004a99;
+  color: #1f3b73;
 }
 
-/* Contenedor de la malla */
-#malla-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-/* Semestres */
 .semestre {
-  background: #fff;
+  background-color: white;
   border-radius: 10px;
-  box-shadow: 0 3px 8px rgb(0 0 0 / 0.1);
-  width: 300px;
-  padding: 15px 20px;
-  display: flex;
-  flex-direction: column;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 900px;
 }
 
 .semestre h2 {
-  color: #003366;
-  font-weight: 700;
-  margin-bottom: 5px;
-  font-size: 1.4rem;
-  text-align: center;
+  margin: 0;
 }
 
 .creditos-semestre {
-  text-align: center;
+  color: gray;
   font-size: 0.9rem;
-  color: #666;
   margin-bottom: 15px;
 }
 
-/* Materias */
 .materia {
   position: relative;
-  background: #e0e7e9;
-  padding: 10px 15px 10px 25px;
-  margin-bottom: 10px;
-  border-radius: 6px;
+  margin: 10px 0;
+  padding: 10px 15px;
+  border-radius: 5px;
   cursor: pointer;
-  user-select: none;
-  transition: background-color 0.3s;
-  border-left: 8px solid transparent;
-  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
 }
 
-/* Colores fondo por tipo */
+.materia .btn-aprobar {
+  margin-left: 15px;
+  padding: 5px 10px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.materia .btn-aprobar:hover {
+  background-color: #0056b3;
+}
+
+.materia .info {
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  font-size: 1.2rem;
+  color: #888;
+}
+
+.materia.aprobada {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+/* Colores por clasificación */
 .estudios-generales {
-  background-color: #d4edda; /* verde pastel */
+  background-color: #cce0ff;
 }
 
 .estudios-profesionales {
-  background-color: #d0e7f9; /* azul claro pastel */
+  background-color: #e6f0ff;
 }
 
-/* Clasificación - franja izquierda */
+.prerrequisito {
+  background-color: #dde6f2;
+}
+
+/* Franjas por tipo */
 .obligatoria {
-  border-left-color: #e63946; /* rojo */
+  border-left: 6px solid red;
 }
 
 .electiva {
-  border-left-color: #888888; /* gris */
+  border-left: 6px solid gray;
 }
 
-.practicas {
-  border-left-color: #ffa500; /* naranja */
+.concentracion {
+  border-left: 6px solid orange;
 }
 
-.electivos {
-  border-left-color: #ffa500; /* naranja */
-}
-
-/* Prerrequisitos: franja lateral con azul grisáceo */
-.prerrequisito {
-  border-left-color: #5f9ea0 !important; /* cadetblue */
-}
-
-/* Botón info + */
-.btn-info {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: #004a99;
-  border: none;
-  color: white;
-  font-weight: bold;
-  border-radius: 50%;
-  width: 22px;
-  height: 22px;
-  cursor: pointer;
-  line-height: 22px;
-  text-align: center;
-  font-size: 1.2rem;
-  transition: background-color 0.2s;
-}
-
-.btn-info:hover {
-  background-color: #023e73;
-}
-
-/* Materia tachada cuando se aprueba */
-.materia.aprobada {
-  text-decoration: line-through;
-  color: #666;
-  background-color: #c1c8cc !important;
-}
-
-/* Popup info */
-#info-popup {
+/* Modal */
+.modal {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 5px 20px rgb(0 0 0 / 0.3);
-  width: 320px;
-  max-width: 90%;
-  padding: 20px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 1000;
 }
 
-#info-popup.hidden {
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.hidden {
   display: none;
 }
 
-#info-content {
-  font-size: 1rem;
-  margin-bottom: 20px;
-  color: #222;
-  white-space: pre-wrap;
-}
-
-#close-popup {
-  background-color: #e63946;
-  border: none;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background-color 0.2s;
-  width: 100%;
-}
-
-#close-popup:hover {
-  background-color: #b4313a;
-}
-
 /* Responsive */
-@media (max-width: 960px) {
-  #malla-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
+@media (max-width: 600px) {
   .semestre {
-    width: 90%;
+    padding: 15px;
+  }
+  .materia {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .materia .btn-aprobar {
+    margin-top: 10px;
   }
 }
