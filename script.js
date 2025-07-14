@@ -1,54 +1,34 @@
-// Espera a que cargue el DOM
 document.addEventListener("DOMContentLoaded", () => {
-  const infoModal = document.getElementById("info-modal");
-  const infoText = document.getElementById("info-text");
-  const prereqText = document.getElementById("prereq-text");
-  const closeBtn = document.getElementById("close-info");
+  const materias = document.querySelectorAll(".materia");
+  const infoPopup = document.getElementById("info-popup");
+  const infoContent = document.getElementById("info-content");
+  const closePopupBtn = document.getElementById("close-popup");
 
-  // Abrir modal info
-  document.querySelectorAll(".btn-info").forEach(button => {
-    button.addEventListener("click", (e) => {
-      const materia = e.target.closest(".materia");
-      if (!materia) return;
+  // Mostrar info al dar click en el botón "+"
+  materias.forEach((materia) => {
+    const btn = materia.querySelector(".btn-info");
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation(); // Evitar que se active el tache
+      const info = materia.getAttribute("data-info");
+      infoContent.textContent = info;
+      infoPopup.classList.remove("hidden");
+    });
 
-      const info = materia.getAttribute("data-info") || "No hay información";
-      const prereq = materia.getAttribute("data-prerrequisito");
-
-      infoText.textContent = info;
-      if (prereq) {
-        prereqText.textContent = "Prerrequisitos: " + prereq;
-        prereqText.style.display = "block";
-      } else {
-        prereqText.style.display = "none";
-      }
-
-      infoModal.classList.remove("hidden");
+    // Tachar materia al hacer click en el div materia (no en el boton)
+    materia.addEventListener("click", () => {
+      materia.classList.toggle("aprobada");
     });
   });
 
-  // Cerrar modal info
-  closeBtn.addEventListener("click", () => {
-    infoModal.classList.add("hidden");
+  // Cerrar popup info
+  closePopupBtn.addEventListener("click", () => {
+    infoPopup.classList.add("hidden");
   });
 
-  // Cerrar modal si clic afuera del contenido
-  infoModal.addEventListener("click", (e) => {
-    if (e.target === infoModal) {
-      infoModal.classList.add("hidden");
+  // Cerrar popup si clic afuera
+  window.addEventListener("click", (e) => {
+    if (!infoPopup.classList.contains("hidden") && !infoPopup.contains(e.target)) {
+      infoPopup.classList.add("hidden");
     }
-  });
-
-  // Manejar checkbox "Se aprueba"
-  document.querySelectorAll(".aprobado-checkbox").forEach(checkbox => {
-    checkbox.addEventListener("change", (e) => {
-      const materia = e.target.closest(".materia");
-      if (!materia) return;
-
-      if (checkbox.checked) {
-        materia.classList.add("aprobado");
-      } else {
-        materia.classList.remove("aprobado");
-      }
-    });
   });
 });
