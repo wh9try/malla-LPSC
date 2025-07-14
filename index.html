@@ -1,240 +1,163 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF‑8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Malla Interactiva – Psicología Clínica</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Malla Curricular Psicología</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1 class="titulo">Plan de Estudios – Psicología Clínica</h1>
+  <h1>Malla Curricular Psicología</h1>
 
-  <div class="wrapper">
-    <!-- ————————————————  SEMESTRE 1  ———————————————— -->
-    <section class="semester">
-      <h2>Semestre 1</h2>
-      <p class="sem-credits">36 créditos</p>
+  <div class="malla-container">
 
-      <div class="course category-generales type-obligatoria" data-credits="6">
-        <label class="approve">
-          <input type="checkbox" />
-          <span></span>
-        </label>
-        Fundamentos de la Salud Física y Emocional
-        <span class="toggle">+</span>
-        <div class="info">
-          <p><strong>Clasificación:</strong> Estudios generales – Obligatoria</p>
-          <p><strong>Créditos:</strong> 6</p>
-        </div>
-      </div>
-
-      <div class="course category-profesionales type-obligatoria" data-credits="6">
-        <label class="approve"><input type="checkbox" /><span></span></label>
-        Historia de la Psicología
-        <span class="toggle">+</span>
-        <div class="info">
-          <p><strong>Clasificación:</strong> Estudios profesionales – Obligatoria</p>
-          <p><strong>Créditos:</strong> 6</p>
-        </div>
-      </div>
-
-      <div class="course category-profesionales type-obligatoria" data-credits="6">
-        <label class="approve"><input type="checkbox" /><span></span></label>
-        Psicología de la Personalidad
-        <span class="toggle">+</span>
-        <div class="info">
-          <p><strong>Clasificación:</strong> Estudios profesionales – Obligatoria</p>
-          <p><strong>Créditos:</strong> 6</p>
-        </div>
-      </div>
-
-      <div class="course category-profesionales type-obligatoria" data-credits="6">
-        <label class="approve"><input type="checkbox" /><span></span></label>
-        Anátomo‑fisiología
-        <span class="toggle">+</span>
-        <div class="info">
-          <p><strong>Clasificación:</strong> Estudios profesionales – Obligatoria</p>
-          <p><strong>Créditos:</strong> 6</p>
-        </div>
-      </div>
-
-      <div class="course category-profesionales type-obligatoria" data-credits="6">
-        <label class="approve"><input type="checkbox" /><span></span></label>
-        Psicología del Niño y del Adolescente
-        <span class="toggle">+</span>
-        <div class="info">
-          <p><strong>Clasificación:</strong> Estudios profesionales – Obligatoria</p>
-          <p><strong>Créditos:</strong> 6</p>
-        </div>
-      </div>
-
-      <div class="course category-profesionales type-obligatoria" data-credits="6">
-        <label class="approve"><input type="checkbox" /><span></span></label>
-        Psicología Social
-        <span class="toggle">+</span>
-        <div class="info">
-          <p><strong>Clasificación:</strong> Estudios profesionales – Obligatoria</p>
-          <p><strong>Créditos:</strong> 6</p>
-        </div>
-      </div>
+    <!-- SEMESTRE 1 -->
+    <section class="semestre">
+      <header>
+        <h2>Semestre 1</h2>
+        <p class="creditos-total">Créditos: 36</p>
+      </header>
+      <ul class="materias-lista">
+        <li class="materia estudios-generales obligatoria" data-info="Fundamentos de la Salud Física y emocional (Estudios generales, obligatoria) - Créditos: 6" data-creditos="6">
+          Fundamentos de la Salud Física y emocional
+          <button class="btn-info">+</button>
+          <label><input type="checkbox" class="aprobado-checkbox" /> Se aprueba</label>
+        </li>
+        <li class="materia estudios-profesionales obligatoria" data-info="Historia de la psicología (Estudios profesionales, obligatoria) - Créditos: 6" data-creditos="6">
+          Historia de la psicología
+          <button class="btn-info">+</button>
+          <label><input type="checkbox" class="aprobado-checkbox" /> Se aprueba</label>
+        </li>
+        <li class="materia estudios-profesionales obligatoria" data-info="Psicología de la Personalidad (Estudios profesionales, obligatoria) - Créditos: 6" data-creditos="6">
+          Psicología de la Personalidad
+          <button class="btn-info">+</button>
+          <label><input type="checkbox" class="aprobado-checkbox" /> Se aprueba</label>
+        </li>
+        <li class="materia estudios-profesionales obligatoria" data-info="Anátomo-fisiología (Estudios profesionales, obligatoria) - Créditos: 6" data-creditos="6">
+          Anátomo-fisiología
+          <button class="btn-info">+</button>
+          <label><input type="checkbox" class="aprobado-checkbox" /> Se aprueba</label>
+        </li>
+        <li class="materia estudios-profesionales obligatoria" data-info="Psicologia del niño y del adolescente (Estudios profesionales, obligatoria) - Créditos: 6" data-creditos="6">
+          Psicologia del niño y del adolescente
+          <button class="btn-info">+</button>
+          <label><input type="checkbox" class="aprobado-checkbox" /> Se aprueba</label>
+        </li>
+        <li class="materia estudios-profesionales obligatoria" data-info="Psicologia social (Estudios profesionales, obligatoria) - Créditos: 6" data-creditos="6">
+          Psicologia social
+          <button class="btn-info">+</button>
+          <label><input type="checkbox" class="aprobado-checkbox" /> Se aprueba</label>
+        </li>
+      </ul>
     </section>
 
-    <!-- ————————————————  SEMESTRE 2  ———————————————— -->
-    <section class="semester">
-      <h2>Semestre 2</h2>
-      <p class="sem-credits">42 créditos</p>
-
-      <div class="course category-generales type-obligatoria" data-credits="6">
-        <label class="approve"><input type="checkbox" /><span></span></label>
-        Antropología Filosófica
-        <span class="toggle">+</span>
-        <div class="info">
-          <p><strong>Clasificación:</strong> Estudios generales – Obligatoria</p>
-          <p><strong>Créditos:</strong> 6</p>
-        </div>
-      </div>
-
-      <div class="course category-profesionales type-obligatoria" data-credits="6">
-        <label class="approve"><input type="checkbox" /><span></span></label>
-        Fundamentos de Psicología Clínica
-        <span class="toggle">+</span>
-        <div class="info">
-          <p><strong>Clasificación:</strong> Estudios profesionales – Obligatoria</p>
-          <p><strong>Créditos:</strong> 6</p>
-        </div>
-      </div>
-
-      <div class="course category-profesionales type-obligatoria" data-credits="6">
-        <label class="approve"><input type="checkbox" /><span></span></label>
-        Psicología de los Procesos Básicos
-        <span class="toggle">+</span>
-        <div class="info">
-          <p><strong>Clasificación:</strong> Estudios profesionales – Obligatoria</p>
-          <p><strong>Créditos:</strong> 6</p>
-        </div>
-      </div>
-
-      <div class="course category-profesionales type-obligatoria" data-credits="6">
-        <label class="approve"><input type="checkbox" /><span></span></label>
-        Psicobiología
-        <span class="toggle">+</span>
-        <div class="info">
-          <p><strong>Clasificación:</strong> Estudios profesionales – Obligatoria</p>
-          <p><strong>Créditos:</strong> 6</p>
-        </div>
-      </div>
-
-      <div class="course category-profesionales type-obligatoria" data-credits="6">
-        <label class="approve"><input type="checkbox" /><span></span></label>
-        Psicología del Adulto y del Adulto Mayor
-        <span class="toggle">+</span>
-        <div class="info">
-          <p><strong>Clasificación:</strong> Estudios profesionales – Obligatoria</p>
-          <p><strong>Créditos:</strong> 6</p>
-        </div>
-      </div>
-
-      <div class="course category-profesionales type-obligatoria" data-credits="6">
-        <label class="approve"><input type="checkbox" /><span></span></label>
-        Psicología del Aprendizaje
-        <span class="toggle">+</span>
-        <div class="info">
-          <p><strong>Clasificación:</strong> Estudios profesionales – Obligatoria</p>
-          <p><strong>Créditos:</strong> 6</p>
-        </div>
-      </div>
-
-      <div class="course category-profesionales type-obligatoria" data-credits="6">
-        <label class="approve"><input type="checkbox" /><span></span></label>
-        Psicología del Trabajo
-        <span class="toggle">+</span>
-        <div class="info">
-          <p><strong>Clasificación:</strong> Estudios profesionales – Obligatoria</p>
-          <p><strong>Créditos:</strong> 6</p>
-        </div>
-      </div>
+    <!-- SEMESTRE 2 -->
+    <section class="semestre">
+      <header>
+        <h2>Semestre 2</h2>
+        <p class="creditos-total">Créditos: 42</p>
+      </header>
+      <ul class="materias-lista">
+        <li class="materia estudios-generales obligatoria" data-info="Antropologia filosófica (Estudios generales, obligatoria) - Créditos: 6" data-creditos="6">
+          Antropología filosófica
+          <button class="btn-info">+</button>
+          <label><input type="checkbox" class="aprobado-checkbox" /> Se aprueba</label>
+        </li>
+        <li class="materia estudios-profesionales obligatoria" data-info="Fundamentos de psicología clínica (Estudios profesionales, obligatoria) - Créditos: 6" data-creditos="6">
+          Fundamentos de psicología clínica
+          <button class="btn-info">+</button>
+          <label><input type="checkbox" class="aprobado-checkbox" /> Se aprueba</label>
+        </li>
+        <li class="materia estudios-profesionales obligatoria" data-info="Psicología de los procesos básicos (Estudios profesionales, obligatoria) - Créditos: 6" data-creditos="6">
+          Psicología de los procesos básicos
+          <button class="btn-info">+</button>
+          <label><input type="checkbox" class="aprobado-checkbox" /> Se aprueba</label>
+        </li>
+        <li class="materia estudios-profesionales obligatoria" data-info="Psicolobiología (Estudios profesionales, obligatoria) - Créditos: 6" data-creditos="6">
+          Psicolobiología
+          <button class="btn-info">+</button>
+          <label><input type="checkbox" class="aprobado-checkbox" /> Se aprueba</label>
+        </li>
+        <li class="materia estudios-profesionales obligatoria" data-info="Psicología del adulto y del adulto mayor (Estudios profesionales, obligatoria) - Créditos: 6" data-creditos="6">
+          Psicología del adulto y del adulto mayor
+          <button class="btn-info">+</button>
+          <label><input type="checkbox" class="aprobado-checkbox" /> Se aprueba</label>
+        </li>
+        <li class="materia estudios-profesionales obligatoria" data-info="Psicología del aprendizaje (Estudios profesionales, obligatoria) - Créditos: 6" data-creditos="6">
+          Psicología del aprendizaje
+          <button class="btn-info">+</button>
+          <label><input type="checkbox" class="aprobado-checkbox" /> Se aprueba</label>
+        </li>
+        <li class="materia estudios-profesionales obligatoria" data-info="Psicologia del trabajo (Estudios profesionales, obligatoria) - Créditos: 6" data-creditos="6">
+          Psicologia del trabajo
+          <button class="btn-info">+</button>
+          <label><input type="checkbox" class="aprobado-checkbox" /> Se aprueba</label>
+        </li>
+      </ul>
     </section>
 
-    <!-- ————————————————  SEMESTRE 3  ———————————————— -->
-    <section class="semester">
-      <h2>Semestre 3</h2>
-      <p class="sem-credits">42 créditos</p>
+    <!-- SEMESTRE 3 -->
+    <section class="semestre">
+      <header>
+        <h2>Semestre 3</h2>
+        <p class="creditos-total">Créditos: 42</p>
+      </header>
+      <ul class="materias-lista">
+        <li class="materia estudios-generales obligatoria" data-info="Pensamiento-cientifico y tecnológico (Estudios generales, obligatoria) - Créditos: 6" data-creditos="6">
+          Pensamiento-cientifico y tecnológico
+          <button class="btn-info">+</button>
+          <label><input type="checkbox" class="aprobado-checkbox" /> Se aprueba</label>
+        </li>
 
-      <div class="course category-generales type-obligatoria" data-credits="6">
-        <label class="approve"><input type="checkbox" /><span></span></label>
-        Pensamiento Científico y Tecnológico
-        <span class="toggle">+</span>
-        <div class="info">
-          <p><strong>Clasificación:</strong> Estudios generales – Obligatoria</p>
-          <p><strong>Créditos:</strong> 6</p>
-        </div>
-      </div>
+        <li class="materia estudios-generales electiva" data-info="Curso Electivo General LPSC (Estudios generales, electivo) - Créditos: 6" data-creditos="6">
+          Curso Electivo General LPSC
+          <button class="btn-info">+</button>
+          <label><input type="checkbox" class="aprobado-checkbox" /> Se aprueba</label>
+        </li>
 
-      <div class="course category-generales type-electiva" data-credits="6">
-        <label class="approve"><input type="checkbox" /><span></span></label>
-        Curso Electivo General LPSC
-        <span class="toggle">+</span>
-        <div class="info">
-          <p><strong>Clasificación:</strong> Estudios generales – Electiva</p>
-          <p><strong>Créditos:</strong> 6</p>
-        </div>
-      </div>
+        <li class="materia estudios-profesionales obligatoria" data-info="Modelos y métodos de evaluación (Estudios profesionales, obligatoria) - Créditos: 6" data-creditos="6">
+          Modelos y métodos de evaluación
+          <button class="btn-info">+</button>
+          <label><input type="checkbox" class="aprobado-checkbox" /> Se aprueba</label>
+        </li>
 
-      <div class="course category-profesionales type-obligatoria" data-credits="6">
-        <label class="approve"><input type="checkbox" /><span></span></label>
-        Modelos y Métodos de Evaluación
-        <span class="toggle">+</span>
-        <div class="info">
-          <p><strong>Clasificación:</strong> Estudios profesionales – Obligatoria</p>
-          <p><strong>Créditos:</strong> 6</p>
-        </div>
-      </div>
+        <li class="materia estudios-profesionales obligatoria prerrequisito" data-info="Psicopatología descriptiva (Estudios profesionales, obligatoria, prerrequisito: Fundamentos de psicología clínica, Psicología de la personalidad) - Créditos: 6" data-creditos="6" data-prerrequisito="Fundamentos de psicología clínica, Psicología de la personalidad">
+          Psicopatología descriptiva
+          <button class="btn-info">+</button>
+          <label><input type="checkbox" class="aprobado-checkbox" /> Se aprueba</label>
+        </li>
 
-      <div class="course category-profesionales type-obligatoria has-prereq" data-credits="6"
-           data-prereq="Fundamentos de Psicología Clínica; Psicología de la Personalidad">
-        <label class="approve"><input type="checkbox" /><span></span></label>
-        Psicopatología Descriptiva
-        <span class="toggle">+</span>
-        <div class="info">
-          <p><strong>Clasificación:</strong> Estudios profesionales – Obligatoria</p>
-          <p><strong>Créditos:</strong> 6</p>
-          <p><strong>Prerrequisitos:</strong> Fundamentos de Psicología Clínica, Psicología de la Personalidad</p>
-        </div>
-      </div>
+        <li class="materia estudios-profesionales obligatoria" data-info="Neuropsicologías clínica (Estudios profesionales, obligatoria) - Créditos: 6" data-creditos="6">
+          Neuropsicologías clínica
+          <button class="btn-info">+</button>
+          <label><input type="checkbox" class="aprobado-checkbox" /> Se aprueba</label>
+        </li>
 
-      <div class="course category-profesionales type-obligatoria" data-credits="6">
-        <label class="approve"><input type="checkbox" /><span></span></label>
-        Neuropsicología Clínica
-        <span class="toggle">+</span>
-        <div class="info">
-          <p><strong>Clasificación:</strong> Estudios profesionales – Obligatoria</p>
-          <p><strong>Créditos:</strong> 6</p>
-        </div>
-      </div>
+        <li class="materia estudios-profesionales obligatoria" data-info="Psicología educativa (Estudios profesionales, obligatoria) - Créditos: 6" data-creditos="6">
+          Psicología educativa
+          <button class="btn-info">+</button>
+          <label><input type="checkbox" class="aprobado-checkbox" /> Se aprueba</label>
+        </li>
 
-      <div class="course category-profesionales type-obligatoria" data-credits="6">
-        <label class="approve"><input type="checkbox" /><span></span></label>
-        Psicología Educativa
-        <span class="toggle">+</span>
-        <div class="info">
-          <p><strong>Clasificación:</strong> Estudios profesionales – Obligatoria</p>
-          <p><strong>Créditos:</strong> 6</p>
-        </div>
-      </div>
-
-      <div class="course category-generales type-electiva" data-credits="6">
-        <label class="approve"><input type="checkbox" /><span></span></label>
-        Curso Electivo Profesional LPSC
-        <span class="toggle">+</span>
-        <div class="info">
-          <p><strong>Clasificación:</strong> Estudios generales – Electiva</p>
-          <p><strong>Créditos:</strong> 6</p>
-        </div>
-      </div>
+        <li class="materia estudios-generales electiva" data-info="Curso Electivo Profesional LPSC (Estudios generales, electivo) - Créditos: 6" data-creditos="6">
+          Curso Electivo Profesional LPSC
+          <button class="btn-info">+</button>
+          <label><input type="checkbox" class="aprobado-checkbox" /> Se aprueba</label>
+        </li>
+      </ul>
     </section>
 
-    <!-- ————————————  (SEMESTRES 4 a 9 OMITIDOS POR ESPACIO)  ———————————— -->
-    <!-- Copia la misma estructura anterior para los semestres 4‑9 con sus cursos, créditos y prerrequisitos. -->
+    <!-- Puedes agregar más semestres siguiendo esta estructura... -->
+
+  </div>
+
+  <!-- Área para mostrar info de materia -->
+  <div id="info-modal" class="info-modal hidden">
+    <div class="info-content">
+      <button id="close-info" class="close-info">×</button>
+      <p id="info-text"></p>
+      <p id="prereq-text" class="prereq-text"></p>
+    </div>
   </div>
 
   <script src="script.js"></script>
