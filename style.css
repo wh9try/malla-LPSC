@@ -1,0 +1,68 @@
+/* ————  AJUSTES GENERALES  ———— */
+*{box-sizing:border-box;margin:0;padding:0;font-family:"Inter",sans-serif}
+body{background:#fafafa;color:#333;padding:30px 10px}
+.titulo{font-size:2rem;margin-bottom:20px;text-align:center}
+
+/* ————  CONTENEDOR PRINCIPAL  ———— */
+.wrapper{
+  display:flex;
+  gap:16px;
+  overflow-x:auto;
+  padding-bottom:10px;
+}
+
+/* ————  COLUMNA DE SEMESTRE  ———— */
+.semester{
+  background:#ffeef8;
+  border-radius:16px;
+  padding:18px 14px;
+  min-width:230px;          /*  ancho compacto  */
+  box-shadow:0 2px 6px rgb(0 0 0 /.08);
+}
+.semester h2{font-size:1.1rem;margin-bottom:2px}
+.sem-credits{font-size:.8rem;color:#666;margin-bottom:12px}
+
+/* ————  TARJETAS DE CURSO  ———— */
+.course{
+  position:relative;
+  border-radius:10px;
+  padding:10px 34px 34px 14px;   /*  espacio para + y borde  */
+  margin-bottom:8px;
+  cursor:pointer;
+  transition:.2s;
+}
+.course:hover{transform:scale(1.03)}
+.course.approved{opacity:.55;text-decoration:line-through}
+
+/*  Colores de FONDO por categoría  */
+.category-generales{background:#d8f5d0}
+.category-profesionales{background:#d9ecff}
+.has-prereq{background:#e2eaf7 !important}
+
+/*  Franjas verticales por tipo  */
+.type-obligatoria{border-left:6px solid #ef5350}
+.type-electiva{border-left:6px solid #9e9e9e}
+.type-concentracion{border-left:6px solid #ffa726}
+
+/*  Botón +  */
+.toggle{
+  position:absolute;
+  right:8px;bottom:6px;
+  font-weight:700;font-size:1.1rem;
+}
+
+/*  Panel de información  */
+.info{display:none;font-size:.85rem;margin-top:8px}
+.course.open .info{display:block}
+
+/*  Casilla “Se aprueba”  */
+.approve{position:absolute;left:6px;top:8px}
+.approve input{display:none}
+.approve span{
+  display:inline-block;width:16px;height:16px;
+  border:2px solid #1976d2;border-radius:3px;
+}
+.approve input:checked+span{
+  background:#1976d2;
+  box-shadow:inset 0 0 0 2px #fff;
+}
