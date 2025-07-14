@@ -1,351 +1,147 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Malla Interactiva Psicología</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <title>Malla Psicología Clínica UDEM</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f7f9fc;
+      margin: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #1f3b73;
+    }
+
+    .semestre {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 900px;
+    }
+
+    .semestre h2 {
+      margin: 0;
+    }
+
+    .creditos-semestre {
+      color: gray;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+
+    .materia {
+      position: relative;
+      margin: 10px 0;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .materia .btn-aprobar {
+      margin-left: 15px;
+      padding: 5px 10px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .materia .btn-aprobar:hover {
+      background-color: #0056b3;
+    }
+
+    .materia .info {
+      position: absolute;
+      bottom: 5px;
+      right: 10px;
+      font-size: 1.2rem;
+      color: #888;
+    }
+
+    .materia.aprobada {
+      text-decoration: line-through;
+      opacity: 0.6;
+    }
+
+    /* Colores por clasificación */
+    .estudios-generales {
+      background-color: #cce0ff;
+    }
+
+    .estudios-profesionales {
+      background-color: #e6f0ff;
+    }
+
+    .prerrequisito {
+      background-color: #dde6f2;
+    }
+
+    /* Franjas por tipo */
+    .obligatoria {
+      border-left: 6px solid red;
+    }
+
+    .electiva {
+      border-left: 6px solid gray;
+    }
+
+    .concentracion {
+      border-left: 6px solid orange;
+    }
+
+    /* Modal */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      width: 90%;
+    }
+
+    .close-button {
+      float: right;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
 <body>
-  <h1>Malla Curricular Psicología</h1>
-  <div id="malla-container">
-
-    <!-- Aquí se listan los semestres con materias -->
-
-    <!-- SEMESTRE 1 -->
-    <section class="semestre" id="semestre1">
-      <h2>Semestre 1</h2>
-      <p class="creditos-semestre">Créditos: 36</p>
-
-      <div class="materia estudios-generales obligatoria" data-info="Estudios generales, obligatoria - créditos: 6">
-        Fundamentos de la Salud Física y emocional
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales obligatoria" data-info="Estudios profesionales, obligatoria - créditos: 6">
-        Historia de la psicología
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales obligatoria" data-info="Estudios profesionales, obligatoria - créditos: 6">
-        Psicología de la Personalidad
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales obligatoria" data-info="Estudios profesionales, obligatoria - créditos: 6">
-        Anátomo-fisiología
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales obligatoria" data-info="Estudios profesionales, obligatoria - créditos: 6">
-        Psicología del niño y del adolescente
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales obligatoria" data-info="Estudios profesionales, obligatoria - créditos: 6">
-        Psicología social
-        <button class="btn-info">+</button>
-      </div>
-    </section>
-
-    <!-- SEMESTRE 2 -->
-    <section class="semestre" id="semestre2">
-      <h2>Semestre 2</h2>
-      <p class="creditos-semestre">Créditos: 42</p>
-
-      <div class="materia estudios-generales obligatoria" data-info="Estudios generales, obligatoria - créditos: 6">
-        Antropología filosófica
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales obligatoria" data-info="Estudios profesionales, obligatoria - créditos: 6">
-        Fundamentos de psicología clínica
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales obligatoria" data-info="Estudios profesionales, obligatoria - créditos: 6">
-        Psicología de los procesos básicos
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales obligatoria" data-info="Estudios profesionales, obligatoria - créditos: 6">
-        Psicolobiología
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales obligatoria" data-info="Estudios profesionales, obligatoria - créditos: 6">
-        Psicología del adulto y del adulto mayor
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales obligatoria" data-info="Estudios profesionales, obligatoria - créditos: 6">
-        Psicología del aprendizaje
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales obligatoria" data-info="Estudios profesionales, obligatoria - créditos: 6">
-        Psicología del trabajo
-        <button class="btn-info">+</button>
-      </div>
-    </section>
-
-    <!-- SEMESTRE 3 -->
-    <section class="semestre" id="semestre3">
-      <h2>Semestre 3</h2>
-      <p class="creditos-semestre">Créditos: 42</p>
-
-      <div class="materia estudios-generales obligatoria" data-info="Estudios generales, obligatoria - créditos: 6">
-        Pensamiento-científico y tecnológico
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-generales electiva" data-info="Estudios generales, electivo - créditos: 6">
-        Curso Electivo General LPSC
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales obligatoria" data-info="Estudios profesionales, obligatoria - créditos: 6">
-        Modelos y métodos de evaluación
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales obligatoria prerrequisito" data-info="Estudios profesionales, obligatoria - créditos: 6. Prerrequisitos: Fundamentos de psicología clínica, Psicología de la personalidad">
-        Psicopatología descriptiva
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales obligatoria" data-info="Estudios profesionales, obligatoria - créditos: 6">
-        Neuropsicologías clínica
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales obligatoria" data-info="Estudios profesionales, obligatoria - créditos: 6">
-        Psicología educativa
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-generales electiva" data-info="Estudios generales, electivo - créditos: 6">
-        Curso Electivo Profesional LPSC
-        <button class="btn-info">+</button>
-      </div>
-    </section>
-
-    <!-- SEMESTRE 4 -->
-    <section class="semestre" id="semestre4">
-      <h2>Semestre 4</h2>
-      <p class="creditos-semestre">Créditos: 42</p>
-
-      <div class="materia estudios-generales obligatoria" data-info="Estudios generales, obligatoria - créditos: 6">
-        Ética social cristiana
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales obligatoria prerrequisito" data-info="Estudios profesionales, obligatoria - créditos: 6. Prerrequisitos: Modelos y métodos de evaluación">
-        Enfoque de investigación cuantitativo en psicología
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales obligatoria prerrequisito" data-info="Estudios profesionales, obligatoria - créditos: 6. Prerrequisitos: Fundamentos de psicología clínica, Psicología de la personalidad">
-        Teoría y técnica de la entrevista
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales obligatoria prerrequisito" data-info="Estudios profesionales, obligatoria - créditos: 6. Prerrequisitos: Psicopatología descriptiva">
-        Psicolopatología comprensiva
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales obligatoria" data-info="Estudios profesionales, obligatoria - créditos: 6">
-        Psicología de la desigualdad
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales obligatoria" data-info="Estudios profesionales, obligatoria - créditos: 6">
-        Psicología de la familia
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales obligatoria" data-info="Estudios profesionales, obligatoria - créditos: 6">
-        Psicología de la intervención social
-        <button class="btn-info">+</button>
-      </div>
-    </section>
-
-    <!-- SEMESTRE 5 -->
-    <section class="semestre" id="semestre5">
-      <h2>Semestre 5</h2>
-      <p class="creditos-semestre">Créditos: 39</p>
-
-      <div class="materia estudios-generales obligatoria" data-info="Estudios generales, obligatoria - créditos: 3">
-        Tendencias de liderazgo
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales obligatoria prerrequisito" data-info="Estudios profesionales, obligatoria - créditos: 6. Prerrequisitos: Enfoque de investigación cuantitativo en psicología">
-        Análisis de datos en investigación psicológica
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales obligatoria" data-info="Estudios profesionales, obligatoria - créditos: 6">
-        Terapia cognitivo conductual
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales obligatoria" data-info="Estudios profesionales, obligatoria - créditos: 6">
-        Psicogerantología clínica
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales obligatoria prerrequisito" data-info="Estudios profesionales, obligatoria - créditos: 6. Prerrequisitos: Teoría y técnica de la entrevista, Psicopatología descriptiva">
-        Evaluación y diagnóstico clínico
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales obligatoria" data-info="Estudios profesionales, obligatoria - créditos: 6">
-        Intervenciones psicológicas en niños y adolescentes
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales obligatoria" data-info="Estudios profesionales, obligatoria - créditos: 6">
-        Evaluación del recurso humano
-        <button class="btn-info">+</button>
-      </div>
-    </section>
-
-    <!-- SEMESTRE 6 -->
-    <section class="semestre" id="semestre6">
-      <h2>Semestre 6</h2>
-      <p class="creditos-semestre">Créditos: 46</p>
-
-      <div class="materia estudios-generales obligatoria" data-info="Estudios generales, obligatoria - créditos: 6">
-        Pensamiento crítico y creativo
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales obligatoria prerrequisito" data-info="Estudios profesionales, obligatoria - créditos: 6. Prerrequisitos: Análisis de datos en investigación psicológica">
-        Enfoque de investigación cualitativo en psicología
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales obligatoria" data-info="Estudios profesionales, obligatoria - créditos: 6">
-        Piscoterapia psicoanalítica
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales obligatoria" data-info="Estudios profesionales, obligatoria - créditos: 6">
-        Psicofarmacología
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales obligatoria" data-info="Estudios profesionales, obligatoria - créditos: 6">
-        Abordajes psicoterapéuticos de las situaciones de urgencia
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales practicas" data-info="Estudios profesionales, Prácticas y Proyecto de Evaluación Final (PEF) - créditos: 16">
-        Prácticas profesionales intensivas I del programa de psicología clínica
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales electivos" data-info="Electivos/Concentración - créditos: No especificado">
-        Servicio social
-        <button class="btn-info">+</button>
-      </div>
-    </section>
-
-    <!-- SEMESTRE 7 -->
-    <section class="semestre" id="semestre7">
-      <h2>Semestre 7</h2>
-      <p class="creditos-semestre">Créditos: 43</p>
-
-      <div class="materia estudios-generales obligatoria" data-info="Estudios generales, obligatoria - créditos: 3">
-        Retos de la comunicación contemporánea
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-generales electiva" data-info="Estudios generales, electivo - créditos: 6">
-        Curso Electivo General LPSC
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales obligatoria" data-info="Estudios profesionales, obligatoria - créditos: 6">
-        Terapia sistémica
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales obligatoria prerrequisito" data-info="Estudios profesionales, obligatoria - créditos: 6. Prerrequisitos: Psicopatología comprensiva">
-        Psicología clínica y de la salud
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales electivos" data-info="Electivos/Concentración - créditos: 6">
-        Curso Electivo Profesional LPSC
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales practicas" data-info="Estudios profesionales, Prácticas y Proyecto de Evaluación Final (PEF) - créditos: 16">
-        Prácticas profesionales intensivas II del programa de psicología clínica
-        <button class="btn-info">+</button>
-      </div>
-    </section>
-
-    <!-- SEMESTRE 8 -->
-    <section class="semestre" id="semestre8">
-      <h2>Semestre 8</h2>
-      <p class="creditos-semestre">Créditos: 40</p>
-
-      <div class="materia estudios-generales obligatoria" data-info="Estudios generales, obligatoria - créditos: 6">
-        Sostenibilidades y responsabilidad
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales obligatoria" data-info="Estudios profesionales, obligatoria - créditos: 6">
-        Seminario de proyectos de investigación psicología
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales electivos" data-info="Electivos/Concentración - créditos: 6">
-        Curso Electivo Profesional LPSC
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales practicas" data-info="Estudios profesionales, Prácticas y Proyecto de Evaluación Final (PEF) - créditos: 22">
-        Internado psicología clínica
-        <button class="btn-info">+</button>
-      </div>
-    </section>
-
-    <!-- SEMESTRE 9 -->
-    <section class="semestre" id="semestre9">
-      <h2>Semestre 9</h2>
-      <p class="creditos-semestre">Créditos: 30</p>
-
-      <div class="materia estudios-generales obligatoria" data-info="Estudios generales, obligatoria - créditos: 6">
-        Retos y dinámicas globales
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales obligatoria prerrequisito" data-info="Estudios profesionales, obligatoria - créditos: 6. Prerrequisitos: Enfoque de investigación cualitativo en psicología">
-        Innovaciones en mediación tecnológica en psicología
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales electivos" data-info="Electivos/Concentración - créditos: 6">
-        Curso Electivo Profesional LPSC
-        <button class="btn-info">+</button>
-      </div>
-
-      <div class="materia estudios-profesionales obligatoria" data-info="Estudios profesionales, obligatoria - créditos: 12">
-        Programa de evaluación final del programa de psicología clínica
-        <button class="btn-info">+</button>
-      </div>
-    </section>
-
-  </div>
-
-  <div id="info-popup" class="hidden">
-    <div id="info-content"></div>
-    <button id="close-popup">Cerrar</button>
+  <h1>Malla Curricular - Psicología Clínica UDEM</h1>
+  <div id="malla"></div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h3 id="modal-title"></h3>
+      <p id="modal-info"></p>
+    </div>
   </div>
 
   <script src="script.js"></script>
