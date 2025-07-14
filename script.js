@@ -1,34 +1,150 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const materias = document.querySelectorAll(".materia");
-  const infoPopup = document.getElementById("info-popup");
-  const infoContent = document.getElementById("info-content");
-  const closePopupBtn = document.getElementById("close-popup");
-
-  // Mostrar info al dar click en el botón "+"
-  materias.forEach((materia) => {
-    const btn = materia.querySelector(".btn-info");
-    btn.addEventListener("click", (e) => {
-      e.stopPropagation(); // Evitar que se active el tache
-      const info = materia.getAttribute("data-info");
-      infoContent.textContent = info;
-      infoPopup.classList.remove("hidden");
-    });
-
-    // Tachar materia al hacer click en el div materia (no en el boton)
-    materia.addEventListener("click", () => {
-      materia.classList.toggle("aprobada");
-    });
-  });
-
-  // Cerrar popup info
-  closePopupBtn.addEventListener("click", () => {
-    infoPopup.classList.add("hidden");
-  });
-
-  // Cerrar popup si clic afuera
-  window.addEventListener("click", (e) => {
-    if (!infoPopup.classList.contains("hidden") && !infoPopup.contains(e.target)) {
-      infoPopup.classList.add("hidden");
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Malla Psicología Clínica UDEM</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f7f9fc;
+      margin: 20px;
     }
-  });
-});
+
+    h1 {
+      text-align: center;
+      color: #1f3b73;
+    }
+
+    .semestre {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 900px;
+    }
+
+    .semestre h2 {
+      margin: 0;
+    }
+
+    .creditos-semestre {
+      color: gray;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+
+    .materia {
+      position: relative;
+      margin: 10px 0;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .materia .btn-aprobar {
+      margin-left: 15px;
+      padding: 5px 10px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .materia .btn-aprobar:hover {
+      background-color: #0056b3;
+    }
+
+    .materia .info {
+      position: absolute;
+      bottom: 5px;
+      right: 10px;
+      font-size: 1.2rem;
+      color: #888;
+    }
+
+    .materia.aprobada {
+      text-decoration: line-through;
+      opacity: 0.6;
+    }
+
+    /* Colores por clasificación */
+    .estudios-generales {
+      background-color: #cce0ff;
+    }
+
+    .estudios-profesionales {
+      background-color: #e6f0ff;
+    }
+
+    .prerrequisito {
+      background-color: #dde6f2;
+    }
+
+    /* Franjas por tipo */
+    .obligatoria {
+      border-left: 6px solid red;
+    }
+
+    .electiva {
+      border-left: 6px solid gray;
+    }
+
+    .concentracion {
+      border-left: 6px solid orange;
+    }
+
+    /* Modal */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      width: 90%;
+    }
+
+    .close-button {
+      float: right;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Malla Curricular - Psicología Clínica UDEM</h1>
+  <div id="malla"></div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h3 id="modal-title"></h3>
+      <p id="modal-info"></p>
+    </div>
+  </div>
+
+  <!-- ✅ Aquí va el script -->
+  <script src="script.js"></script>
+</body>
+</html>
